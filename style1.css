@@ -1,0 +1,99 @@
+:root {
+  --rotateSpeed: 30s;
+}
+body {
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 75px;
+  perspective: 10em;
+  perspective-origin: 50% calc(50% - 2em);
+}
+.container {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateFloor var(--rotateSpeed) infinite linear;
+}
+@keyframes rotateFloor {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+img {
+  border-radius: 100%;
+  width: 100%;
+}
+
+.floor {
+  position: absolute;
+  top: 1em;
+  transform: translate(-50%, -50%) rotateX(90deg);
+  width: 15em;
+  height: 15em;
+
+  background-image: radial-gradient(#0000, #000 75%),
+    repeating-conic-gradient(from 45deg, #111 0deg 90deg, #e9e5e5 90deg 180deg);
+  background-size:
+    100%,
+    1em 1em;
+}
+
+.sphere {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #000dff;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  animation: rotateFloor var(--rotateSpeed) infinite linear reverse;
+  transform: translate(-50%, -50%) translateZ(20px);
+}
+
+.sphereTwo {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: -4.5em;
+  left: 1em;
+  background-color: #000dff5f;
+  animation:
+    rotateFloor var(--rotateSpeed) infinite linear reverse,
+    spin 4s linear infinite;
+}
+.sphereThree {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -2.1em;
+  left: -3em;
+  background-color: #00ff1a72;
+}
+.sphereFour {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: -1.2em;
+  left: -4.2em;
+  background-color: #ff000072;
+}
+.sphereFive {
+  width: 20rem;
+  height: 20rem;
+  position: absolute;
+  top: -4em;
+  left: 20em;
+  background: transparent;
+}
+
+@keyframes spin {
+  to {
+    transform: rotateZ(099deg) rotateY(0deg) rotateX(235deg);
+  }
+}
